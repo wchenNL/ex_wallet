@@ -14,7 +14,7 @@ defmodule ExWallet.Crypto do
     do: hash(data, :ripemd160)
 
   def hmac_sha512(key \\ @bitcoin_key, data),
-    do: :crypto.macN(:hmac, :sha512, key, data, 8)
+    do: :crypto.macN(:hmac, :sha512, key, data, 32)
 
   defp hash(data, algorithm),
     do: :crypto.hash(algorithm, data)
